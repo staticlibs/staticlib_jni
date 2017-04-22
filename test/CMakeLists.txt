@@ -26,6 +26,12 @@ project ( staticlib_jni_test CXX )
 include ( ${STATICLIB_CMAKE}/staticlibs_common.cmake )
 
 # dependencies
+if ( NOT DEFINED STATICLIB_DEPS )
+    set ( STATICLIB_DEPS ${CMAKE_CURRENT_LIST_DIR}/../../ CACHE INTERNAL "" )    
+endif ( )
+staticlib_add_subdirectory ( ${STATICLIB_DEPS}/staticlib_config )
+staticlib_add_subdirectory ( ${STATICLIB_DEPS}/staticlib_support )
+staticlib_add_subdirectory ( ${STATICLIB_DEPS}/staticlib_concurrent )
 staticlib_add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/../../staticlib_jni )
 set ( ${PROJECT_NAME}_DEPS staticlib_jni )
 staticlib_pkg_check_modules ( ${PROJECT_NAME}_DEPS_PC REQUIRED ${PROJECT_NAME}_DEPS )
@@ -43,11 +49,14 @@ target_compile_options ( ${PROJECT_NAME} PRIVATE ${${PROJECT_NAME}_DEPS_PC_CFLAG
 
 # test
 if ( "${STATICLIB_ROOT_SOURCE_DIR}" STREQUAL "${PROJECT_SOURCE_DIR}" )
+    message ( STATUS "Compiling test java app" )
     execute_process ( COMMAND javac 
             ${CMAKE_CURRENT_LIST_DIR}/JniTest.java 
             -cp ${CMAKE_CURRENT_LIST_DIR}
             -g
-            -d ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} )
+            -d ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
+            WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR} )
+    message ( STATUS "Compiling test java app - done" )
     enable_testing ( )
     add_test ( jni_test 
             java 

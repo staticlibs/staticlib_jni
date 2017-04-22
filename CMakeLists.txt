@@ -15,9 +15,10 @@
 cmake_minimum_required ( VERSION 2.8.12 )
 
 project ( staticlib_jni CXX )
-set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.0 )
-set ( ${PROJECT_NAME}_DESCRIPTION "Staticlibs JNI Headers" )
+set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.1.0 )
+set ( ${PROJECT_NAME}_DESCRIPTION "Staticlibs JNI utilities" )
 set ( ${PROJECT_NAME}_URL https://github.com/staticlibs/staticlib_jni )
+include ( ${CMAKE_CURRENT_LIST_DIR}/resources/macros.cmake )
 
 # docs
 option ( ${PROJECT_NAME}_ENABLE_DOCS "Generate doxyfile and exit build" OFF )
@@ -30,6 +31,18 @@ endif ( )
 if ( NOT DEFINED CMAKE_LIBRARY_OUTPUT_DIRECTORY )
     set ( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR} )
 endif ( )
+if ( NOT DEFINED STATICLIB_TOOLCHAIN )
+    staticlib_io_add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/../staticlib_config )
+    staticlib_io_add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/../staticlib_support )
+    staticlib_io_add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/../staticlib_concurrent )
+endif ( )
+
+# dependencies
+set ( ${PROJECT_NAME}_DEPS 
+        staticlib_config
+        staticlib_support
+        staticlib_concurrent )
+staticlib_jni_pkg_check_modules ( ${PROJECT_NAME}_DEPS_PC REQUIRED ${PROJECT_NAME}_DEPS )
 
 # target
 file ( GLOB_RECURSE ${PROJECT_NAME}_HEADERS ${CMAKE_CURRENT_LIST_DIR}/include/*.h )
@@ -38,5 +51,6 @@ add_custom_target ( ${PROJECT_NAME} SOURCES ${${PROJECT_NAME}_HEADERS} )
 
 # pkg-config
 set ( ${PROJECT_NAME}_PC_CFLAGS "-I${CMAKE_CURRENT_LIST_DIR}/include" )
+staticlib_jni_list_to_string ( ${PROJECT_NAME}_PC_REQUIRES "" ${PROJECT_NAME}_DEPS )
 configure_file ( ${CMAKE_CURRENT_LIST_DIR}/resources/pkg-config.in 
         ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/pkgconfig/${PROJECT_NAME}.pc )

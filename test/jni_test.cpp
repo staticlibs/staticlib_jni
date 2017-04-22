@@ -18,6 +18,21 @@
 
 #include <iostream>
 
+#include "error_checker_test.hpp"
+#include "java_vm_ptr_test.hpp"
+#include "thread_local_jni_env_ptr_test.hpp"
+#include "jclass_ptr_test.hpp"
+#include "jobject_ptr_test.hpp"
+
 void JNICALL Java_JniTest_printHello(JNIEnv*, jclass) {
-    std::cout << "Hello JNI!" << std::endl;
+    try {
+        test_error_checker();
+        test_java_vm_ptr();
+        test_thread_local_jni_env_ptr();
+        test_jclass_ptr();
+        test_jobject_ptr();
+        std::cout << "Hello JNI success!" << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+    }
 }
