@@ -1072,8 +1072,8 @@ struct _JavaVM {
 #if defined(__cplusplus)
     jint DestroyJavaVM()
     { return functions->DestroyJavaVM(this); }
-    jint AttachCurrentThread(JNIEnv** p_env, void* thr_args)
-    { return functions->AttachCurrentThread(this, p_env, thr_args); }
+    jint AttachCurrentThread(void** p_env, void* thr_args)
+    { return functions->AttachCurrentThread(this, (JNIEnv**) p_env, thr_args); }
     jint DetachCurrentThread()
     { return functions->DetachCurrentThread(this); }
     jint GetEnv(void** env, jint version)

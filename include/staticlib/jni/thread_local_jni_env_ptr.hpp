@@ -50,7 +50,7 @@ public:
         case JNI_OK:
             return std::unique_ptr<JNIEnv, std::function<void(JNIEnv*)>>(env, [](JNIEnv*) { /* no-op */ });
         case JNI_EDETACHED: {
-            auto attach_err = jvm->AttachCurrentThread(std::addressof(env), nullptr);
+            auto attach_err = jvm->AttachCurrentThread(reinterpret_cast<void**> (std::addressof(env)), nullptr);
             if (JNI_OK == attach_err) {
                 return std::unique_ptr<JNIEnv, std::function<void(JNIEnv*)>>(env, [jvm](JNIEnv*) {
                     auto detach_err = jvm->DetachCurrentThread();
