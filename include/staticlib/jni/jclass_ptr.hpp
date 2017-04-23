@@ -105,7 +105,8 @@ public:
     }
 
     template<typename... Args>
-    jobject_ptr call_static_object_method(const std::string& methodname, const std::string& signature, Args... args);
+    jobject_ptr call_static_object_method(const jclass_ptr& resclass, 
+            const std::string& methodname, const std::string& signature, Args... args);
 };
 
 } // namespace

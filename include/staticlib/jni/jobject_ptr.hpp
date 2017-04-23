@@ -44,7 +44,7 @@ class jobject_ptr {
     std::shared_ptr<_jobject> obj;
 
 public:
-    jobject_ptr(jclass_ptr clazz, jobject local) :
+    jobject_ptr(const jclass_ptr& clazz, jobject local) :
     cls(clazz),
     obj([this, local] {
         auto env = thread_local_jni_env_ptr();
@@ -96,13 +96,21 @@ public:
         }
         return res;
     }
+    template<typename... Args>
+    jobject_ptr call_object_method(const jclass_ptr& resclass, const std::string& methodname,
+            const std::string& signature, Args... args) {
+        auto env = thread_local_jni_env_ptr();
+        jobject local = call_method<jobject>(methodname, signature, &JNIEnv::CallObjectMethod, args...);
+        return jobject_ptr(resclass, local);
+    }
 };
 
 template<typename... Args>
-jobject_ptr jclass_ptr::call_static_object_method(const std::string& methodname, const std::string& signature, Args... args) {
+jobject_ptr jclass_ptr::call_static_object_method(const jclass_ptr& resclass,
+        const std::string& methodname, const std::string& signature, Args... args) {
     auto env = thread_local_jni_env_ptr();
     jobject local = call_static_method<jobject>(methodname, signature, &JNIEnv::CallStaticObjectMethod, args...);
-    return jobject_ptr(*this, local);
+    return jobject_ptr(resclass, local);
 }
 
 } //namespace

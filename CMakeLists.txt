@@ -32,9 +32,9 @@ if ( NOT DEFINED CMAKE_LIBRARY_OUTPUT_DIRECTORY )
     set ( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR} )
 endif ( )
 if ( NOT DEFINED STATICLIB_TOOLCHAIN )
-    staticlib_io_add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/../staticlib_config )
-    staticlib_io_add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/../staticlib_support )
-    staticlib_io_add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/../staticlib_concurrent )
+    staticlib_jni_add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/../staticlib_config )
+    staticlib_jni_add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/../staticlib_support )
+    staticlib_jni_add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/../staticlib_concurrent )
 endif ( )
 
 # dependencies

@@ -31,8 +31,8 @@
 #include "staticlib/config/assert.hpp"
 
 void test_jobject_ptr() {
-    auto clazz = sl::jni::jclass_ptr("java/lang/Runtime");
-    auto obj = clazz.call_static_object_method("getRuntime", "()Ljava/lang/Runtime;");
+    auto rt = sl::jni::jclass_ptr("java/lang/Runtime");
+    auto obj = rt.call_static_object_method(rt, "getRuntime", "()Ljava/lang/Runtime;");
     jlong res = obj.call_method<jlong>("totalMemory", "()J", &JNIEnv::CallLongMethod);
     slassert(res > 0);
 }
