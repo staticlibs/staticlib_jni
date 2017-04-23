@@ -96,6 +96,7 @@ public:
         }
         return res;
     }
+    
     template<typename... Args>
     jobject_ptr call_object_method(const jclass_ptr& resclass, const std::string& methodname,
             const std::string& signature, Args... args) {

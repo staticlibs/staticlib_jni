@@ -37,6 +37,7 @@ namespace jni {
 
 class java_vm_ptr {
     sl::support::observer_ptr<JavaVM> jvm;
+    std::atomic<bool> init_flag;
     sl::concurrent::countdown_latch init_latch;
     std::atomic<bool> shutdown_flag;
     sl::concurrent::condition_latch shutdown_latch;
@@ -71,7 +72,12 @@ public:
     }
 
     void notify_init_complete() {
+        init_flag.store(true, std::memory_order_release);
         init_latch.count_down();
+    }
+    
+    bool init_complete() {
+        return init_flag.load(std::memory_order_acquire);
     }
 
     void thread_sleep_before_shutdown(std::chrono::milliseconds millis) {
@@ -80,6 +86,8 @@ public:
 
     void notify_shutdown() {
         shutdown_flag.store(true, std::memory_order_release);
+        // initialization may not yet happen
+        init_latch.reset();
         shutdown_latch.notify_all();
     }
 };
