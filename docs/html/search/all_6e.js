@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name',['name',['../structJNINativeMethod.html#a054c5cbf5a97ea9cbb1c42949a163fa7',1,'JNINativeMethod::name()'],['../structJavaVMAttachArgs.html#ade31015a61a360bd993f0c7c3b7bc60d',1,'JavaVMAttachArgs::name()']]],
+  ['name',['name',['../structJNINativeMethod.html#a054c5cbf5a97ea9cbb1c42949a163fa7',1,'JNINativeMethod::name()'],['../structJavaVMAttachArgs.html#ade31015a61a360bd993f0c7c3b7bc60d',1,'JavaVMAttachArgs::name()'],['../classstaticlib_1_1jni_1_1jclass__ptr.html#ab14d7d98bf21145e41a620143e234f19',1,'staticlib::jni::jclass_ptr::name()']]],
   ['newbooleanarray',['NewBooleanArray',['../structJNINativeInterface.html#a407938be1551d3a12b0ef207bab4443c',1,'JNINativeInterface']]],
   ['newbytearray',['NewByteArray',['../structJNINativeInterface.html#a16de2ae9d46ac81417c6075e116048b8',1,'JNINativeInterface']]],
   ['newchararray',['NewCharArray',['../structJNINativeInterface.html#a542c4b59ee40771d43b19eefae0ddc28',1,'JNINativeInterface']]],
@@ -19,5 +19,7 @@ var searchData=
   ['newstring',['NewString',['../structJNINativeInterface.html#a53638aadeb0aacec0a02f1cf96c2cee5',1,'JNINativeInterface']]],
   ['newstringutf',['NewStringUTF',['../structJNINativeInterface.html#a02e25802eaaa9407a8f28f1323426e6b',1,'JNINativeInterface']]],
   ['newweakglobalref',['NewWeakGlobalRef',['../structJNINativeInterface.html#a951a84a48ba1395667e6470d5a8132d6',1,'JNINativeInterface']]],
-  ['noptions',['nOptions',['../structJavaVMInitArgs.html#ab1714d891a0164be1a2a043e2f9f801b',1,'JavaVMInitArgs']]]
+  ['noptions',['nOptions',['../structJavaVMInitArgs.html#ab1714d891a0164be1a2a043e2f9f801b',1,'JavaVMInitArgs']]],
+  ['notify_5finit_5fcomplete',['notify_init_complete',['../classstaticlib_1_1jni_1_1java__vm__ptr.html#aa3083a425a1b3fcf7bb0577ad2e4bb4a',1,'staticlib::jni::java_vm_ptr']]],
+  ['notify_5fshutdown',['notify_shutdown',['../classstaticlib_1_1jni_1_1java__vm__ptr.html#abf4cca5dbc7d72f05b6b3ab1c41ae544',1,'staticlib::jni::java_vm_ptr']]]
 ];

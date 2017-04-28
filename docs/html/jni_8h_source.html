@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_jni
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">1.1.0</span>
    </div>
   </td>
  </tr>
@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -1158,14 +1159,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01072"></a><span class="lineno"> 1072</span>&#160;<span class="preprocessor">#if defined(__cplusplus)</span></div>
 <div class="line"><a name="l01073"></a><span class="lineno"> 1073</span>&#160;<span class="preprocessor"></span>    jint <a class="code" href="structJNIInvokeInterface.html#aff59d0dcac4f04992b9b3a05c7624120">DestroyJavaVM</a>()</div>
 <div class="line"><a name="l01074"></a><span class="lineno"> 1074</span>&#160;    { <span class="keywordflow">return</span> <a class="code" href="struct__JavaVM.html#aad1eb9c5f99ef136f09aba7b8c230f65">functions</a>-&gt;<a class="code" href="structJNIInvokeInterface.html#aff59d0dcac4f04992b9b3a05c7624120">DestroyJavaVM</a>(<span class="keyword">this</span>); }</div>
-<div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;    jint <a class="code" href="structJNIInvokeInterface.html#abcdc26f5facdb9f6e1550616a8ca1d56">AttachCurrentThread</a>(JNIEnv** p_env, <span class="keywordtype">void</span>* thr_args)</div>
-<div class="line"><a name="l01076"></a><span class="lineno"> 1076</span>&#160;    { <span class="keywordflow">return</span> <a class="code" href="struct__JavaVM.html#aad1eb9c5f99ef136f09aba7b8c230f65">functions</a>-&gt;<a class="code" href="structJNIInvokeInterface.html#abcdc26f5facdb9f6e1550616a8ca1d56">AttachCurrentThread</a>(<span class="keyword">this</span>, p_env, thr_args); }</div>
+<div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;    jint <a class="code" href="structJNIInvokeInterface.html#abcdc26f5facdb9f6e1550616a8ca1d56">AttachCurrentThread</a>(<span class="keywordtype">void</span>** p_env, <span class="keywordtype">void</span>* thr_args)</div>
+<div class="line"><a name="l01076"></a><span class="lineno"> 1076</span>&#160;    { <span class="keywordflow">return</span> <a class="code" href="struct__JavaVM.html#aad1eb9c5f99ef136f09aba7b8c230f65">functions</a>-&gt;<a class="code" href="structJNIInvokeInterface.html#abcdc26f5facdb9f6e1550616a8ca1d56">AttachCurrentThread</a>(<span class="keyword">this</span>, (JNIEnv**) p_env, thr_args); }</div>
 <div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;    jint <a class="code" href="structJNIInvokeInterface.html#a722aaa4bbb55bfa50fc4b9e3f3ca4a68">DetachCurrentThread</a>()</div>
 <div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160;    { <span class="keywordflow">return</span> <a class="code" href="struct__JavaVM.html#aad1eb9c5f99ef136f09aba7b8c230f65">functions</a>-&gt;<a class="code" href="structJNIInvokeInterface.html#a722aaa4bbb55bfa50fc4b9e3f3ca4a68">DetachCurrentThread</a>(<span class="keyword">this</span>); }</div>
 <div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;    jint <a class="code" href="structJNIInvokeInterface.html#a9aac5046fc512129703bb6215c9d60b6">GetEnv</a>(<span class="keywordtype">void</span>** env, jint version)</div>
 <div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160;    { <span class="keywordflow">return</span> <a class="code" href="struct__JavaVM.html#aad1eb9c5f99ef136f09aba7b8c230f65">functions</a>-&gt;<a class="code" href="structJNIInvokeInterface.html#a9aac5046fc512129703bb6215c9d60b6">GetEnv</a>(<span class="keyword">this</span>, env, version); }</div>
-<div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;    jint <a class="code" href="structJNIInvokeInterface.html#a00bb873d81be3814dda5a566a7213ce3">AttachCurrentThreadAsDaemon</a>(JNIEnv** p_env, <span class="keywordtype">void</span>* thr_args)</div>
-<div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;    { <span class="keywordflow">return</span> <a class="code" href="struct__JavaVM.html#aad1eb9c5f99ef136f09aba7b8c230f65">functions</a>-&gt;<a class="code" href="structJNIInvokeInterface.html#a00bb873d81be3814dda5a566a7213ce3">AttachCurrentThreadAsDaemon</a>(<span class="keyword">this</span>, p_env, thr_args); }</div>
+<div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;    jint <a class="code" href="structJNIInvokeInterface.html#a00bb873d81be3814dda5a566a7213ce3">AttachCurrentThreadAsDaemon</a>(<span class="keywordtype">void</span>** p_env, <span class="keywordtype">void</span>* thr_args)</div>
+<div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;    { <span class="keywordflow">return</span> <a class="code" href="struct__JavaVM.html#aad1eb9c5f99ef136f09aba7b8c230f65">functions</a>-&gt;<a class="code" href="structJNIInvokeInterface.html#a00bb873d81be3814dda5a566a7213ce3">AttachCurrentThreadAsDaemon</a>(<span class="keyword">this</span>, (JNIEnv**) p_env, thr_args); }</div>
 <div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*__cplusplus*/</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;<span class="preprocessor"></span>};</div>
 <div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;</div>
@@ -1250,7 +1251,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 21 2016 15:37:53 for staticlib_jni by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 28 2017 21:18:48 for staticlib_jni by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

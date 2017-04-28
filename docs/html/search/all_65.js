@@ -1,6 +1,8 @@
 var searchData=
 [
   ['ensurelocalcapacity',['EnsureLocalCapacity',['../structJNINativeInterface.html#a21fffa598cb7f4000960e25332d50a1b',1,'JNINativeInterface']]],
+  ['error_5fchecker',['error_checker',['../classstaticlib_1_1jni_1_1error__checker.html',1,'staticlib::jni']]],
+  ['error_5fchecker_2ehpp',['error_checker.hpp',['../error__checker_8hpp.html',1,'']]],
   ['exceptioncheck',['ExceptionCheck',['../structJNINativeInterface.html#a564fcc3d379ef237a1e39345949cf914',1,'JNINativeInterface']]],
   ['exceptionclear',['ExceptionClear',['../structJNINativeInterface.html#a08597ec383f90a94171afe8e7744516b',1,'JNINativeInterface']]],
   ['exceptiondescribe',['ExceptionDescribe',['../structJNINativeInterface.html#a13530dabbd5f1047a9741dd0e88d8c5e',1,'JNINativeInterface']]],

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['jni',['jni',['../namespacestaticlib_1_1jni.html',1,'staticlib']]],
   ['s',['s',['../unionjvalue.html#a14b30561ffa7cec1d3816fbcfad9cc37',1,'jvalue']]],
   ['setbooleanarrayregion',['SetBooleanArrayRegion',['../structJNINativeInterface.html#a6bdf0d27c43add38fe3af9bcdb3a4d4d',1,'JNINativeInterface']]],
   ['setbooleanfield',['SetBooleanField',['../structJNINativeInterface.html#adad7d66a2c6ef1a6fd945f6cac321c47',1,'JNINativeInterface']]],
@@ -28,5 +29,7 @@ var searchData=
   ['setstaticlongfield',['SetStaticLongField',['../structJNINativeInterface.html#ac580b29bbae1708d66839529882ac3e3',1,'JNINativeInterface']]],
   ['setstaticobjectfield',['SetStaticObjectField',['../structJNINativeInterface.html#a538431304eb14af9d3cc58c389677f86',1,'JNINativeInterface']]],
   ['setstaticshortfield',['SetStaticShortField',['../structJNINativeInterface.html#a1fd4f7756788f5d1093ffec4e5a500f8',1,'JNINativeInterface']]],
-  ['signature',['signature',['../structJNINativeMethod.html#ad6d2e4d24ce0971f17259960d9f1d536',1,'JNINativeMethod']]]
+  ['signature',['signature',['../structJNINativeMethod.html#ad6d2e4d24ce0971f17259960d9f1d536',1,'JNINativeMethod']]],
+  ['static_5fjava_5fvm',['static_java_vm',['../namespacestaticlib_1_1jni.html#abca34425c12c9d35a82b840ca8faf0d0',1,'staticlib::jni']]],
+  ['staticlib',['staticlib',['../namespacestaticlib.html',1,'']]]
 ];
