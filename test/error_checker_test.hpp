@@ -26,6 +26,7 @@
 
 #include "staticlib/jni/error_checker.hpp"
 
+#include <functional>
 #include <iostream>
 
 #include "staticlib/config/assert.hpp"
