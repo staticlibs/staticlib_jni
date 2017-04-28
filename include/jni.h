@@ -1078,8 +1078,8 @@ struct _JavaVM {
     { return functions->DetachCurrentThread(this); }
     jint GetEnv(void** env, jint version)
     { return functions->GetEnv(this, env, version); }
-    jint AttachCurrentThreadAsDaemon(JNIEnv** p_env, void* thr_args)
-    { return functions->AttachCurrentThreadAsDaemon(this, p_env, thr_args); }
+    jint AttachCurrentThreadAsDaemon(void** p_env, void* thr_args)
+    { return functions->AttachCurrentThreadAsDaemon(this, (JNIEnv**) p_env, thr_args); }
 #endif /*__cplusplus*/
 };
 
