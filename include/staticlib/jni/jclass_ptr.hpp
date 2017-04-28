@@ -24,6 +24,7 @@
 #ifndef STATICLIB_JNI_JCLASS_PTR_HPP
 #define	STATICLIB_JNI_JCLASS_PTR_HPP
 
+#include <functional>
 #include <memory>
 #include <string>
 
@@ -49,16 +50,18 @@ public:
     clsname(classname.data(), classname.length()),
     cls([this] {
         auto env = thread_local_jni_env_ptr();
-        jclass local = env->FindClass(clsname.c_str());
-        if (nullptr == local) {
+        jclass clazz_local = env->FindClass(clsname.c_str());
+        if (nullptr == clazz_local) {
             throw jni_exception(TRACEMSG("Cannot load class, name: [" + clsname + "]"));
         }
-        jclass global = static_cast<jclass> (env->NewGlobalRef(local));
-        if (nullptr == global) {
+        auto clazz = std::unique_ptr<_jclass, std::function<void(jclass)>>(clazz_local, [&env] (jclass cl) {
+            env->DeleteLocalRef(cl);
+        });
+        jclass clazz_global = static_cast<jclass> (env->NewGlobalRef(clazz.get()));
+        if (nullptr == clazz_global) {
             throw jni_exception(TRACEMSG("Cannot create global ref for class, name: [" + clsname + "]"));
         }
-        env->DeleteLocalRef(local);
-        return std::shared_ptr<_jclass>(global, [](jclass clazz) {
+        return std::shared_ptr<_jclass>(clazz_global, [](jclass clazz) {
             auto env = thread_local_jni_env_ptr();
             env->DeleteGlobalRef(clazz);
         });
