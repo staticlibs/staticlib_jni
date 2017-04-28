@@ -95,7 +95,7 @@ public:
     }
 
     /**
-     * Provides to access `jobject` pointer
+     * Provides access to `jobject` pointer
      * 
      * @returns pointer to `jobject`
      */
@@ -104,7 +104,7 @@ public:
     }
 
     /**
-     * Provides to access `jobject` pointer
+     * Provides access to `jobject` pointer
      * 
      * @returns pointer to `jobject`
      */

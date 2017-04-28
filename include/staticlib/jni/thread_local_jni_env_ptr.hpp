@@ -111,7 +111,7 @@ public:
     }
 
     /**
-     * Provides to access `JNIEnv` pointer
+     * Provides access to `JNIEnv` pointer
      * 
      * @returns pointer to `JNIEnv`
      */
@@ -120,7 +120,7 @@ public:
     }
 
     /**
-     * Provides to access `JNIEnv` pointer
+     * Provides access to `JNIEnv` pointer
      * 
      * @returns pointer to `JNIEnv`
      */

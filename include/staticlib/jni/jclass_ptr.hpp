@@ -101,7 +101,7 @@ public:
     }
 
     /**
-     * Provides to access `jclass` pointer
+     * Provides access to `jclass` pointer
      * 
      * @returns pointer to `jclass`
      */
@@ -110,7 +110,7 @@ public:
     }
 
     /**
-     * Provides to access `jclass` pointer
+     * Provides access to `jclass` pointer
      * 
      * @returns pointer to `jclass`
      */

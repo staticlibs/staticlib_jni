@@ -71,7 +71,7 @@ public:
     java_vm_ptr& operator=(const java_vm_ptr&) = delete;
 
     /**
-     * Provides to access JVM pointer
+     * Provides access to JVM pointer
      * 
      * @returns pointer to JVM
      */
@@ -80,7 +80,7 @@ public:
     }
 
     /**
-     * Provides access JVM pointer
+     * Provides access to JVM pointer
      * 
      * @returns pointer to JVM
      */
