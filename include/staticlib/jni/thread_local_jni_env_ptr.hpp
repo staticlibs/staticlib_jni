@@ -37,10 +37,23 @@
 namespace staticlib {
 namespace jni {
 
+/**
+ * Smart pointer that wraps `JNIEnv` pointer and implements thread-local logic for it.
+ * When this object is first created in the given thread - that thread is attached to JVM.
+ * All other instances of this object created in the same thread will point to
+ * the same `JNIEnv`. Thread is detached from JVM when the first-created object
+ * is destroyed.
+ */
 class thread_local_jni_env_ptr {
     std::unique_ptr<JNIEnv, std::function<void(JNIEnv*)>> jni;
 
 public:
+    /**
+     * Constructor
+     * 
+     * @param javavm should not be specified in normal client code,
+     *        existing global JVM pointer will be used instead
+     */
     thread_local_jni_env_ptr(JavaVM* javavm = nullptr) :
     jni([javavm] {
         JavaVM* jvm = nullptr != javavm ? javavm : static_java_vm().get();
@@ -68,22 +81,49 @@ public:
         }
     }()) { }
 
+    /**
+     * Deleted copy constructor
+     */
     thread_local_jni_env_ptr(const thread_local_jni_env_ptr&) = delete;
 
+    /**
+     * Deleted copy assignment operator
+     */
     thread_local_jni_env_ptr& operator=(const thread_local_jni_env_ptr&) = delete;
 
+    /**
+     * Move constructor
+     * 
+     * @param other other instance
+     */
     thread_local_jni_env_ptr(thread_local_jni_env_ptr&& other) :
     jni(std::move(other.jni)) { }
 
+    /**
+     * Move assignment operator
+     * 
+     * @param other other instance
+     * @return this instance
+     */
     thread_local_jni_env_ptr& operator=(thread_local_jni_env_ptr&& other) {
         jni = std::move(other.jni);
         return *this;
     }
 
+    /**
+     * Provides to access `JNIEnv` pointer
+     * 
+     * @returns pointer to `JNIEnv`
+     */
     JNIEnv* operator->() {
         return jni.get();
     }
 
+    /**
+     * Provides to access `JNIEnv` pointer
+     * 
+     * @returns pointer to `JNIEnv`
+     */
     JNIEnv* get() {
         return jni.get();
     }

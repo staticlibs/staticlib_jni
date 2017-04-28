@@ -39,13 +39,25 @@
 namespace staticlib {
 namespace jni {
 
+// forward decl
 class jobject_ptr;
 
+/**
+ * Smart pointer that wraps JNI's `jclass` pointer.
+ * Can be shared between JNI environments (threads).
+ * Global reference to target `jclass` is deallocated after 
+ * all copies of this object are destroyed.
+ */
 class jclass_ptr {
     std::string clsname;
     std::shared_ptr<_jclass> cls;
 
 public:
+    /**
+     * Constructor
+     * 
+     * @param classname name (in JNI notation) of the class to request from JVM
+     */
     jclass_ptr(const std::string& classname) :
     clsname(classname.data(), classname.length()),
     cls([this] {
@@ -67,28 +79,64 @@ public:
         });
     }()) { }
 
+    /**
+     * Copy constructor
+     * 
+     * @param other other instance
+     */
     jclass_ptr(const jclass_ptr& other) :
     clsname(other.clsname.data(), other.clsname.length()),
     cls(other.cls) { }
 
+    /**
+     * Copy assignment operator
+     * 
+     * @param other other instance
+     * @return this instance
+     */
     jclass_ptr& operator=(const jclass_ptr& other) {
         clsname = std::string(other.clsname.data(), other.clsname.length());
         cls = other.cls;
         return *this;
     }
 
+    /**
+     * Provides to access `jclass` pointer
+     * 
+     * @returns pointer to `jclass`
+     */
     jclass operator->() {
         return cls.get();
     }
 
+    /**
+     * Provides to access `jclass` pointer
+     * 
+     * @returns pointer to `jclass`
+     */
     jclass get() {
         return cls.get();
     }
 
+    /**
+     * Class name (in JNI notation)
+     * 
+     * @return class name
+     */
     const std::string& name() const {
         return clsname;
     }
 
+    /**
+     * Calls arbitrary java static method on current class object.
+     * 
+     * @param methodname name of the method to call
+     * @param signature method signature (in JNI notation)
+     * @param func pointer to `JNIEnv's`member method to use for calling
+     * @param args method arguments
+     * @return method output
+     * @throws jni_exception on non-existed method or java exception
+     */
     template<typename Result, typename Func, typename... Args>
     Result call_static_method(const std::string& methodname, const std::string& signature,
             Func func, Args... args) {
@@ -107,6 +155,16 @@ public:
         return res;
     }
 
+    /**
+     * Calls arbitrary java static method, that returns java object, on current class object.
+     * 
+     * @param resclass result class
+     * @param methodname name of the method to call
+     * @param signature method signature (in JNI notation)
+     * @param args args method arguments
+     * @return resulting object
+     * @throws jni_exception on non-existed method or java exception
+     */
     template<typename... Args>
     jobject_ptr call_static_object_method(const jclass_ptr& resclass, 
             const std::string& methodname, const std::string& signature, Args... args);

@@ -35,6 +35,10 @@
 namespace staticlib {
 namespace jni {
 
+/**
+ * Wraps`JavaVM` pointer and provides some machinery to keep
+ * track of JVM state.
+ */
 class java_vm_ptr {
     sl::support::observer_ptr<JavaVM> jvm;
     std::atomic<bool> init_flag;
@@ -43,6 +47,11 @@ class java_vm_ptr {
     sl::concurrent::condition_latch shutdown_latch;
 
 public:
+    /**
+     * Constructor
+     * 
+     * @param vm pointer to JVM
+     */
     java_vm_ptr(JavaVM* vm) :
     jvm(vm),
     init_latch(1),
@@ -51,39 +60,80 @@ public:
         return !this->running();
     }) { }
 
+    /**
+     * Deleted copy constructor
+     */
     java_vm_ptr(const java_vm_ptr&) = delete;
 
+    /**
+     * Deleted copy assignment operator
+     */
     java_vm_ptr& operator=(const java_vm_ptr&) = delete;
 
+    /**
+     * Provides to access JVM pointer
+     * 
+     * @returns pointer to JVM
+     */
     JavaVM* operator->() {
         return jvm.get();
     }
 
+    /**
+     * Provides access JVM pointer
+     * 
+     * @returns pointer to JVM
+     */
     JavaVM* get() {
         return jvm.get();
     }
 
+    /**
+     * Checks whether JVM went from "running" into "shutting_down" state
+     * 
+     * @return true if no shutdown in progress, false otherwise
+     */
     bool running() {
         return !shutdown_flag.load(std::memory_order_acquire);
     }
 
+    /**
+     * Caller thread waits until JVM is switched from "initializing" into "running" state
+     */
     void await_init_complete() {
         init_latch.await();
     }
 
+    /**
+     * Notifies all init-waiting threads about completed startup
+     */
     void notify_init_complete() {
         init_flag.store(true, std::memory_order_release);
         init_latch.count_down();
     }
-    
+
+    /**
+     * Checks whether JVM went from "initializing" into "running" state
+     * 
+     * @return true if initialization complete, false otherwise
+     */
     bool init_complete() {
         return init_flag.load(std::memory_order_acquire);
     }
 
+    /**
+     * Caller tread sleeps until specified timeout passes or 
+     * JVM shuts down (which comes first)
+     * 
+     * @param millis
+     */
     void thread_sleep_before_shutdown(std::chrono::milliseconds millis) {
         shutdown_latch.await(millis);
     }
 
+    /**
+     * Notifies all sutdown-waiting threads about begging of the shutdown
+     */
     void notify_shutdown() {
         shutdown_flag.store(true, std::memory_order_release);
         // initialization may not yet happen
@@ -92,6 +142,13 @@ public:
     }
 };
 
+/**
+ * Stores process-global pointer to JVM. It is expected, that only
+ * one single JVM instance is used in current process.
+ * 
+ * @param jvm pointer to JVM, must NOT be specified by client code
+ * @return pointer to JVM
+ */
 java_vm_ptr& static_java_vm(JavaVM* jvm = nullptr) {
     static java_vm_ptr vm{jvm};
     return vm;

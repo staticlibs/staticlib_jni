@@ -34,8 +34,20 @@
 namespace staticlib {
 namespace jni {
 
+/**
+ * Helper class that can be used to receive the resulting value from functions,
+ * that return JNI error codes. 
+ */
 class error_checker {
 public:
+    
+    /**
+     * JNI error code value is checked on assignment.
+     * `jni_exception` is thrown if input value is not equal to `JNI_OK`
+     * 
+     * @param err JNI error code to check
+     * @throws jni_exception
+     */
     void operator=(jint err) {
         if (JNI_OK != err) {
             throw jni_exception(TRACEMSG("JNI error code: [" + sl::support::to_string(err) + "]"));

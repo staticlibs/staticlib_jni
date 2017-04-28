@@ -39,11 +39,23 @@
 namespace staticlib {
 namespace jni {
 
+/**
+ * Smart pointer that wraps JNI's `jobject` pointer.
+ * Can be shared between JNI environments (threads).
+ * Global reference to target `jobject` is deallocated after 
+ * all copies of this object are destroyed.
+ */
 class jobject_ptr {
     jclass_ptr cls;
     std::shared_ptr<_jobject> obj;
 
 public:
+    /**
+     * Constructor
+     * 
+     * @param clazz java class of target object
+     * @param local local reference to target object
+     */
     jobject_ptr(const jclass_ptr& clazz, jobject local) :
     cls(clazz),
     obj([this, local] {
@@ -61,24 +73,55 @@ public:
         });
     }()) { }
 
+    /**
+     * Copy constructor
+     * 
+     * @param other other instance
+     */
     jobject_ptr(const jobject_ptr& other) :
     cls(other.cls),
     obj(other.obj) { }
 
+    /**
+     * Copy assignment operator
+     * 
+     * @param other other instance
+     * @return this instance
+     */
     jobject_ptr& operator=(const jobject_ptr& other) {
         cls = other.cls;
         obj = other.obj;
         return *this;
     }
 
+    /**
+     * Provides to access `jobject` pointer
+     * 
+     * @returns pointer to `jobject`
+     */
     jobject operator->() {
         return obj.get();
     }
 
+    /**
+     * Provides to access `jobject` pointer
+     * 
+     * @returns pointer to `jobject`
+     */
     jobject get() {
         return obj.get();
     }
 
+    /**
+     * Calls arbitrary java method on current object.
+     * 
+     * @param methodname name of the method to call
+     * @param signature method signature (in JNI notation)
+     * @param func pointer to `JNIEnv's`member method to use for calling
+     * @param args method arguments
+     * @return method output
+     * @throws jni_exception on non-existed method or java exception
+     */
     template<typename Result, typename Func, typename... Args>
     Result call_method(const std::string& methodname, const std::string& signature,
             Func func, Args... args) {
@@ -96,7 +139,17 @@ public:
         }
         return res;
     }
-    
+
+    /**
+     * Calls arbitrary java method, that returns java object, on current object.
+     * 
+     * @param resclass result class
+     * @param methodname name of the method to call
+     * @param signature method signature (in JNI notation)
+     * @param args args method arguments
+     * @return resulting object
+     * @throws jni_exception on non-existed method or java exception
+     */
     template<typename... Args>
     jobject_ptr call_object_method(const jclass_ptr& resclass, const std::string& methodname,
             const std::string& signature, Args... args) {
