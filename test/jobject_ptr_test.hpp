@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_JNI_JOBJECT_PTR_TEST_HPP
-#define	STATICLIB_JNI_JOBJECT_PTR_TEST_HPP
+#define STATICLIB_JNI_JOBJECT_PTR_TEST_HPP
 
 #include "staticlib/jni/jobject_ptr.hpp"
 
@@ -37,5 +37,5 @@ void test_jobject_ptr() {
     slassert(res > 0);
 }
 
-#endif	/* STATICLIB_JNI_JOBJECT_PTR_TEST_HPP */
+#endif /* STATICLIB_JNI_JOBJECT_PTR_TEST_HPP */
 

@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_JNI_HPP
-#define	STATICLIB_JNI_HPP
+#define STATICLIB_JNI_HPP
 
 #include <jni.h>
 
@@ -35,5 +35,5 @@
 #include "staticlib/jni/jobject_ptr.hpp"
 #include "staticlib/jni/thread_local_jni_env_ptr.hpp"
 
-#endif	/* STATICLIB_JNI_HPP */
+#endif /* STATICLIB_JNI_HPP */
 

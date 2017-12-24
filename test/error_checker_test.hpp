@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_JNI_ERROR_CHECKER_TEST_HPP
-#define	STATICLIB_JNI_ERROR_CHECKER_TEST_HPP
+#define STATICLIB_JNI_ERROR_CHECKER_TEST_HPP
 
 #include "staticlib/jni/error_checker.hpp"
 
@@ -49,5 +49,5 @@ void test_error_checker() {
     }));
 }
 
-#endif	/* STATICLIB_JNI_ERROR_CHECKER_TEST_HPP */
+#endif /* STATICLIB_JNI_ERROR_CHECKER_TEST_HPP */
 

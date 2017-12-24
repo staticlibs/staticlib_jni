@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_JNI_JAVA_VM_PTR_TEST_HPP
-#define	STATICLIB_JNI_JAVA_VM_PTR_TEST_HPP
+#define STATICLIB_JNI_JAVA_VM_PTR_TEST_HPP
 
 #include "staticlib/jni/java_vm_ptr.hpp"
 
@@ -40,5 +40,5 @@ void test_java_vm_ptr() {
     slassert(nullptr != jvm.get());
 }
 
-#endif	/* STATICLIB_JNI_JAVA_VM_PTR_TEST_HPP */
+#endif /* STATICLIB_JNI_JAVA_VM_PTR_TEST_HPP */
 

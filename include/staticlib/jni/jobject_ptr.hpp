@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_JNI_JOBJECT_PTR_HPP
-#define	STATICLIB_JNI_JOBJECT_PTR_HPP
+#define STATICLIB_JNI_JOBJECT_PTR_HPP
 
 #include <memory>
 #include <string>
@@ -170,5 +170,5 @@ jobject_ptr jclass_ptr::call_static_object_method(const jclass_ptr& resclass,
 } //namespace
 }
 
-#endif	/* STATICLIB_JNI_JOBJECT_PTR_HPP */
+#endif /* STATICLIB_JNI_JOBJECT_PTR_HPP */
 

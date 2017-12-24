@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_JNI_JAVA_VM_PTR_HPP
-#define	STATICLIB_JNI_JAVA_VM_PTR_HPP
+#define STATICLIB_JNI_JAVA_VM_PTR_HPP
 
 #include <atomic>
 
@@ -157,5 +157,5 @@ java_vm_ptr& static_java_vm(JavaVM* jvm = nullptr) {
 } // namespace
 }
 
-#endif	/* STATICLIB_JNI_JAVA_VM_PTR_HPP */
+#endif /* STATICLIB_JNI_JAVA_VM_PTR_HPP */
 

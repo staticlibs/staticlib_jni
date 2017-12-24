@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_JNI_JCLASS_PTR_TEST_HPP
-#define	STATICLIB_JNI_JCLASS_PTR_TEST_HPP
+#define STATICLIB_JNI_JCLASS_PTR_TEST_HPP
 
 #include "staticlib/jni/jclass_ptr.hpp"
 
@@ -35,5 +35,5 @@ void test_jclass_ptr() {
     slassert(nullptr != rt.get());
 }
 
-#endif	/* STATICLIB_JNI_JCLASS_PTR_TEST_HPP */
+#endif /* STATICLIB_JNI_JCLASS_PTR_TEST_HPP */
 

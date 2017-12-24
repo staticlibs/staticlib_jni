@@ -1,9 +1,12 @@
 Staticlibs JNI utilities
 ========================
 
+[![travis](https://travis-ci.org/staticlibs/staticlib_jni.svg?branch=master)](https://travis-ci.org/staticlibs/staticlib_jni)
+[![appveyor](https://ci.appveyor.com/api/projects/status/github/staticlibs/staticlib_jni?svg=true)](https://ci.appveyor.com/project/staticlibs/staticlib-jni)
+
 This project is a part of [Staticlibs](http://staticlibs.net/).
 
-This project contains a number of JNI-related utilities and [jni.h header from Android open-source project](https://android.googlesource.com/platform/libnativehelper/+/97b655635ba6182013989f2d0b956fe8ff0b921d/include/nativehelper/jni.h).
+This project contains a number of JNI-related utilities and a [jni.h header from Android open-source project](https://android.googlesource.com/platform/libnativehelper/+/97b655635ba6182013989f2d0b956fe8ff0b921d/include/nativehelper/jni.h).
 
 This library is header-only and depends on [staticlib_config](https://github.com/staticlibs/staticlib_config), 
 [staticlib_support](https://github.com/staticlibs/staticlib_support) and [staticlib_concurrent](https://github.com/staticlibs/staticlib_concurrent).
@@ -22,6 +25,11 @@ the [GNU General Public License, version 2](https://www.gnu.org/licenses/old-lic
 
 Changelog
 ---------
+
+**2017-12-24**
+
+ * version 1.1.1
+ * vs2017 support
 
 **2017-04-28**
 

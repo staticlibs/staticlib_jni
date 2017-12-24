@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_JNI_ERROR_CHECKER_HPP
-#define	STATICLIB_JNI_ERROR_CHECKER_HPP
+#define STATICLIB_JNI_ERROR_CHECKER_HPP
 
 #include <jni.h>
 
@@ -40,7 +40,7 @@ namespace jni {
  */
 class error_checker {
 public:
-    
+
     /**
      * JNI error code value is checked on assignment.
      * `jni_exception` is thrown if input value is not equal to `JNI_OK`
@@ -58,5 +58,5 @@ public:
 } // namespace
 }
 
-#endif	/* STATICLIB_JNI_ERROR_CHECKER_HPP */
+#endif /* STATICLIB_JNI_ERROR_CHECKER_HPP */
 

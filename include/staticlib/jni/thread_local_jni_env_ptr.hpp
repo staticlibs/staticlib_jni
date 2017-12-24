@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_JNI_THREAD_LOCAL_JNI_ENV_PTR_HPP
-#define	STATICLIB_JNI_THREAD_LOCAL_JNI_ENV_PTR_HPP
+#define STATICLIB_JNI_THREAD_LOCAL_JNI_ENV_PTR_HPP
 
 #include <memory>
 #include <string>
@@ -132,5 +132,5 @@ public:
 } // namespace
 }
 
-#endif	/* STATICLIB_JNI_THREAD_LOCAL_JNI_ENV_PTR_HPP */
+#endif /* STATICLIB_JNI_THREAD_LOCAL_JNI_ENV_PTR_HPP */
 

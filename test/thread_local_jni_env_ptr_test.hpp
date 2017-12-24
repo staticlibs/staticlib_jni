@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_JNI_THREAD_LOCAL_JNI_ENV_PTR_TEST_HPP
-#define	STATICLIB_JNI_THREAD_LOCAL_JNI_ENV_PTR_TEST_HPP
+#define STATICLIB_JNI_THREAD_LOCAL_JNI_ENV_PTR_TEST_HPP
 
 #include "staticlib/jni/thread_local_jni_env_ptr.hpp"
 
@@ -41,5 +41,5 @@ void test_thread_local_jni_env_ptr() {
     slassert(nullptr != env_reattach.get());
 }
 
-#endif	/* STATICLIB_JNI_THREAD_LOCAL_JNI_ENV_PTR_TEST_HPP */
+#endif /* STATICLIB_JNI_THREAD_LOCAL_JNI_ENV_PTR_TEST_HPP */
 

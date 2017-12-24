@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_JNI_JCLASS_PTR_HPP
-#define	STATICLIB_JNI_JCLASS_PTR_HPP
+#define STATICLIB_JNI_JCLASS_PTR_HPP
 
 #include <functional>
 #include <memory>
@@ -173,5 +173,5 @@ public:
 } // namespace
 }
 
-#endif	/* STATICLIB_JNI_JCLASS_PTR_HPP */
+#endif /* STATICLIB_JNI_JCLASS_PTR_HPP */
 
