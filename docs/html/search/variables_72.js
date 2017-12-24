@@ -1,18 +1,5 @@
 var searchData=
 [
-  ['registernatives',['RegisterNatives',['../structJNINativeInterface.html#a2bc02fa3fdfa74a8c2786cc71136258d',1,'JNINativeInterface']]],
-  ['releasebooleanarrayelements',['ReleaseBooleanArrayElements',['../structJNINativeInterface.html#a6050a32623e56a2c516df881169ca3b2',1,'JNINativeInterface']]],
-  ['releasebytearrayelements',['ReleaseByteArrayElements',['../structJNINativeInterface.html#aa26f856b90fa920195d86cb4b76f4403',1,'JNINativeInterface']]],
-  ['releasechararrayelements',['ReleaseCharArrayElements',['../structJNINativeInterface.html#a36441f911b985a059e13853cff72ede7',1,'JNINativeInterface']]],
-  ['releasedoublearrayelements',['ReleaseDoubleArrayElements',['../structJNINativeInterface.html#a0b8c3530aa1932aaa15053827521ee8b',1,'JNINativeInterface']]],
-  ['releasefloatarrayelements',['ReleaseFloatArrayElements',['../structJNINativeInterface.html#ab09d4e7ffb93925fe1fa1d3fe83f3627',1,'JNINativeInterface']]],
-  ['releaseintarrayelements',['ReleaseIntArrayElements',['../structJNINativeInterface.html#a81727e86947b406498c4e53d19d49f9f',1,'JNINativeInterface']]],
-  ['releaselongarrayelements',['ReleaseLongArrayElements',['../structJNINativeInterface.html#aae5a7ea0d31f5d6d1885e70fbfab28ef',1,'JNINativeInterface']]],
-  ['releaseprimitivearraycritical',['ReleasePrimitiveArrayCritical',['../structJNINativeInterface.html#ae879e30feb702b2f2c50726fe3211ecc',1,'JNINativeInterface']]],
-  ['releaseshortarrayelements',['ReleaseShortArrayElements',['../structJNINativeInterface.html#a8c19f7a7fdb9777013fc794330905532',1,'JNINativeInterface']]],
-  ['releasestringchars',['ReleaseStringChars',['../structJNINativeInterface.html#a363133db4d26ef8ed4accd23cb807089',1,'JNINativeInterface']]],
-  ['releasestringcritical',['ReleaseStringCritical',['../structJNINativeInterface.html#a7ae8d5ebf8401b7490378ba1776afb40',1,'JNINativeInterface']]],
-  ['releasestringutfchars',['ReleaseStringUTFChars',['../structJNINativeInterface.html#a011e2f8f4c7b025c37cc12795a5c65a4',1,'JNINativeInterface']]],
   ['reserved0',['reserved0',['../structJNINativeInterface.html#a66886069dfdc1bf70964ffa0c9f152e7',1,'JNINativeInterface::reserved0()'],['../structJNIInvokeInterface.html#a1e45369a2faf34db2441e17c2b59b4c5',1,'JNIInvokeInterface::reserved0()']]],
   ['reserved1',['reserved1',['../structJNINativeInterface.html#a855556a27b32d2c64350a7c8ffe75ebf',1,'JNINativeInterface::reserved1()'],['../structJNIInvokeInterface.html#a34cafbab0675adc150e12eaf4710eb37',1,'JNIInvokeInterface::reserved1()']]],
   ['reserved2',['reserved2',['../structJNINativeInterface.html#a7af2582938faf043411e76f8aca6d250',1,'JNINativeInterface::reserved2()'],['../structJNIInvokeInterface.html#a42cba639995c9d29a45b7581c7350010',1,'JNIInvokeInterface::reserved2()']]],

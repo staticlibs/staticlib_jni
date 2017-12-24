@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_jni
-   &#160;<span id="projectnumber">1.1.0</span>
+   &#160;<span id="projectnumber">1.1.1</span>
    </div>
   </td>
  </tr>
@@ -134,17 +134,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="classstaticlib_1_1jni_1_1thread__local__jni__env__ptr.html#a8d98bfa9c09c9f5136e125bf9886ac10">   57</a></span>&#160;    <a class="code" href="classstaticlib_1_1jni_1_1thread__local__jni__env__ptr.html#a8d98bfa9c09c9f5136e125bf9886ac10" title="Constructor.">thread_local_jni_env_ptr</a>(<a class="code" href="structJNIInvokeInterface.html">JavaVM</a>* javavm = <span class="keyword">nullptr</span>) :</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    jni([javavm] {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="structJNIInvokeInterface.html">JavaVM</a>* jvm = <span class="keyword">nullptr</span> != javavm ? javavm : <a class="code" href="namespacestaticlib_1_1jni.html#abca34425c12c9d35a82b840ca8faf0d0" title="Stores process-global pointer to JVM.">static_java_vm</a>().<a class="code" href="classstaticlib_1_1jni_1_1java__vm__ptr.html#a83c825c59ec4266293870380e0cc096a" title="Provides access JVM pointer.">get</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="structJNIInvokeInterface.html">JavaVM</a>* jvm = <span class="keyword">nullptr</span> != javavm ? javavm : <a class="code" href="namespacestaticlib_1_1jni.html#abca34425c12c9d35a82b840ca8faf0d0" title="Stores process-global pointer to JVM.">static_java_vm</a>().<a class="code" href="classstaticlib_1_1jni_1_1java__vm__ptr.html#a83c825c59ec4266293870380e0cc096a" title="Provides access to JVM pointer.">get</a>();</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <a class="code" href="structJNINativeInterface.html">JNIEnv</a>* env;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">auto</span> getenv_err = jvm-&gt;<a class="code" href="structJNIInvokeInterface.html#a9aac5046fc512129703bb6215c9d60b6">GetEnv</a>(reinterpret_cast&lt;void**&gt; (std::addressof(env)), <a class="code" href="jni_8h.html#a187e9b8b99e42b7e8efa1dbe7164345d">JNI_VERSION_1_6</a>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">auto</span> getenv_err = jvm-&gt;GetEnv(reinterpret_cast&lt;void**&gt; (std::addressof(env)), <a class="code" href="jni_8h.html#a187e9b8b99e42b7e8efa1dbe7164345d">JNI_VERSION_1_6</a>);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">switch</span> (getenv_err) {</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="jni_8h.html#ae51e2d91aef86f0b097f07b0f7186740">JNI_OK</a>:</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">return</span> std::unique_ptr&lt;JNIEnv, std::function&lt;void(JNIEnv*)&gt;&gt;(env, [](<a class="code" href="structJNINativeInterface.html">JNIEnv</a>*) { <span class="comment">/* no-op */</span> });</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="jni_8h.html#a30499e80605d7c600bb8f80f603b8da5">JNI_EDETACHED</a>: {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keyword">auto</span> attach_err = jvm-&gt;<a class="code" href="structJNIInvokeInterface.html#a00bb873d81be3814dda5a566a7213ce3">AttachCurrentThreadAsDaemon</a>(reinterpret_cast&lt;void**&gt; (std::addressof(env)), <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keyword">auto</span> attach_err = jvm-&gt;AttachCurrentThreadAsDaemon(reinterpret_cast&lt;void**&gt; (std::addressof(env)), <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="jni_8h.html#ae51e2d91aef86f0b097f07b0f7186740">JNI_OK</a> == attach_err) {</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordflow">return</span> std::unique_ptr&lt;JNIEnv, std::function&lt;void(JNIEnv*)&gt;&gt;(env, [jvm](<a class="code" href="structJNINativeInterface.html">JNIEnv</a>*) {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    <span class="keyword">auto</span> detach_err = jvm-&gt;<a class="code" href="structJNIInvokeInterface.html#a722aaa4bbb55bfa50fc4b9e3f3ca4a68">DetachCurrentThread</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    <span class="keyword">auto</span> detach_err = jvm-&gt;DetachCurrentThread();</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    <span class="keywordflow">if</span> (<a class="code" href="jni_8h.html#ae51e2d91aef86f0b097f07b0f7186740">JNI_OK</a> != detach_err) {</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        <span class="comment">// something went wrong, lets crash early</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                        <span class="keywordflow">throw</span> <a class="code" href="classstaticlib_1_1jni_1_1jni__exception.html" title="Module specific exception.">jni_exception</a>(TRACEMSG(<span class="stringliteral">&quot;JNI &#39;DetachCurrentThread&#39; error code: [&quot;</span> + sl::support::to_string(detach_err) + <span class="stringliteral">&quot;]&quot;</span>));</div>
@@ -171,7 +171,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno"><a class="code" href="classstaticlib_1_1jni_1_1thread__local__jni__env__ptr.html#a30ca40764b4a98113a7461edb4eb8575">  118</a></span>&#160;    <a class="code" href="structJNINativeInterface.html">JNIEnv</a>* <a class="code" href="classstaticlib_1_1jni_1_1thread__local__jni__env__ptr.html#a30ca40764b4a98113a7461edb4eb8575" title="Provides to access JNIEnv pointer.">operator-&gt;</a>() {</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="code" href="classstaticlib_1_1jni_1_1thread__local__jni__env__ptr.html#a30ca40764b4a98113a7461edb4eb8575">  118</a></span>&#160;    <a class="code" href="structJNINativeInterface.html">JNIEnv</a>* <a class="code" href="classstaticlib_1_1jni_1_1thread__local__jni__env__ptr.html#a30ca40764b4a98113a7461edb4eb8575" title="Provides access to JNIEnv pointer.">operator-&gt;</a>() {</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">return</span> jni.get();</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
@@ -183,12 +183,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;} <span class="comment">// namespace</span></div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* STATICLIB_JNI_THREAD_LOCAL_JNI_ENV_PTR_HPP */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* STATICLIB_JNI_THREAD_LOCAL_JNI_ENV_PTR_HPP */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 28 2017 21:18:48 for staticlib_jni by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Dec 24 2017 16:16:49 for staticlib_jni by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

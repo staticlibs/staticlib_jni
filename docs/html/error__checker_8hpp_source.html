@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_jni
-   &#160;<span id="projectnumber">1.1.0</span>
+   &#160;<span id="projectnumber">1.1.1</span>
    </div>
   </td>
  </tr>
@@ -127,7 +127,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classstaticlib_1_1jni_1_1error__checker.html">   41</a></span>&#160;<span class="keyword">class </span><a class="code" href="classstaticlib_1_1jni_1_1error__checker.html" title="Helper class that can be used to receive the resulting value from functions, that return JNI error co...">error_checker</a> {</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="classstaticlib_1_1jni_1_1error__checker.html#aa5eb9cab91d018569f353a2476e8650a">   51</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classstaticlib_1_1jni_1_1error__checker.html#aa5eb9cab91d018569f353a2476e8650a" title="JNI error code value is checked on assignment.">operator=</a>(<a class="code" href="jni_8h.html#a36d2d2d6848d7f576b7f8875f95efd1e">jint</a> err) {</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="jni_8h.html#ae51e2d91aef86f0b097f07b0f7186740">JNI_OK</a> != err) {</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classstaticlib_1_1jni_1_1jni__exception.html" title="Module specific exception.">jni_exception</a>(TRACEMSG(<span class="stringliteral">&quot;JNI error code: [&quot;</span> + sl::support::to_string(err) + <span class="stringliteral">&quot;]&quot;</span>));</div>
@@ -138,12 +138,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;} <span class="comment">// namespace</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* STATICLIB_JNI_ERROR_CHECKER_HPP */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* STATICLIB_JNI_ERROR_CHECKER_HPP */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 28 2017 21:18:48 for staticlib_jni by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Dec 24 2017 16:16:49 for staticlib_jni by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

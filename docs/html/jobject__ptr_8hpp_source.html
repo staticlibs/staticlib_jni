@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_jni
-   &#160;<span id="projectnumber">1.1.0</span>
+   &#160;<span id="projectnumber">1.1.1</span>
    </div>
   </td>
  </tr>
@@ -162,7 +162,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="classstaticlib_1_1jni_1_1jobject__ptr.html#accbfff6701f65cb341990ace4bf2dcf7">  102</a></span>&#160;    <a class="code" href="jni_8h.html#a24647d2a2f02c39f6338c2c6ce4c1004">jobject</a> <a class="code" href="classstaticlib_1_1jni_1_1jobject__ptr.html#accbfff6701f65cb341990ace4bf2dcf7" title="Provides to access jobject pointer.">operator-&gt;</a>() {</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="classstaticlib_1_1jni_1_1jobject__ptr.html#accbfff6701f65cb341990ace4bf2dcf7">  102</a></span>&#160;    <a class="code" href="jni_8h.html#a24647d2a2f02c39f6338c2c6ce4c1004">jobject</a> <a class="code" href="classstaticlib_1_1jni_1_1jobject__ptr.html#accbfff6701f65cb341990ace4bf2dcf7" title="Provides access to jobject pointer.">operator-&gt;</a>() {</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">return</span> obj.get();</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
@@ -174,7 +174,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00126"></a><span class="lineno"><a class="code" href="classstaticlib_1_1jni_1_1jobject__ptr.html#aa8544eaacc726b0fa93eef72b4e85e13">  126</a></span>&#160;    Result <a class="code" href="classstaticlib_1_1jni_1_1jobject__ptr.html#aa8544eaacc726b0fa93eef72b4e85e13" title="Calls arbitrary java method on current object.">call_method</a>(<span class="keyword">const</span> std::string&amp; methodname, <span class="keyword">const</span> std::string&amp; signature,</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            Func func, Args... args) {</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keyword">auto</span> env = <a class="code" href="classstaticlib_1_1jni_1_1thread__local__jni__env__ptr.html" title="Smart pointer that wraps JNIEnv pointer and implements thread-local logic for it.">thread_local_jni_env_ptr</a>();</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <a class="code" href="jni_8h.html#a91d8a65fefade9d27c9f749e69f37c40">jmethodID</a> method = env-&gt;GetMethodID(cls.<a class="code" href="classstaticlib_1_1jni_1_1jclass__ptr.html#a5ff6e7bb7dce05bca1d32ac8e6ca4d6a" title="Provides to access jclass pointer.">get</a>(), methodname.c_str(), signature.c_str());</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <a class="code" href="jni_8h.html#a91d8a65fefade9d27c9f749e69f37c40">jmethodID</a> method = env-&gt;GetMethodID(cls.<a class="code" href="classstaticlib_1_1jni_1_1jclass__ptr.html#a5ff6e7bb7dce05bca1d32ac8e6ca4d6a" title="Provides access to jclass pointer.">get</a>(), methodname.c_str(), signature.c_str());</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">nullptr</span> == method) {</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classstaticlib_1_1jni_1_1jni__exception.html" title="Module specific exception.">jni_exception</a>(TRACEMSG(<span class="stringliteral">&quot;Cannot find method, name: [&quot;</span> + methodname + <span class="stringliteral">&quot;],&quot;</span> +</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                    <span class="stringliteral">&quot; signature: [&quot;</span> + signature + <span class="stringliteral">&quot;], class: [&quot;</span> + cls.<a class="code" href="classstaticlib_1_1jni_1_1jclass__ptr.html#ab14d7d98bf21145e41a620143e234f19" title="Class name (in JNI notation)">name</a>() + <span class="stringliteral">&quot;]&quot;</span>));</div>
@@ -192,7 +192,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00154"></a><span class="lineno"><a class="code" href="classstaticlib_1_1jni_1_1jobject__ptr.html#a95f7e7995049de072de3206c85fe58be">  154</a></span>&#160;    <a class="code" href="classstaticlib_1_1jni_1_1jobject__ptr.html" title="Smart pointer that wraps JNI&#39;s jobject pointer.">jobject_ptr</a> <a class="code" href="classstaticlib_1_1jni_1_1jobject__ptr.html#a95f7e7995049de072de3206c85fe58be" title="Calls arbitrary java method, that returns java object, on current object.">call_object_method</a>(<span class="keyword">const</span> <a class="code" href="classstaticlib_1_1jni_1_1jclass__ptr.html" title="Smart pointer that wraps JNI&#39;s jclass pointer.">jclass_ptr</a>&amp; resclass, <span class="keyword">const</span> std::string&amp; methodname,</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            <span class="keyword">const</span> std::string&amp; signature, Args... args) {</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keyword">auto</span> env = <a class="code" href="classstaticlib_1_1jni_1_1thread__local__jni__env__ptr.html" title="Smart pointer that wraps JNIEnv pointer and implements thread-local logic for it.">thread_local_jni_env_ptr</a>();</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <a class="code" href="jni_8h.html#a24647d2a2f02c39f6338c2c6ce4c1004">jobject</a> local = call_method&lt;jobject&gt;(methodname, signature, &amp;<a class="code" href="structJNINativeInterface.html#a59ea1d0c6bd014367ca0c0af0b36ce63">JNIEnv::CallObjectMethod</a>, args...);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <a class="code" href="jni_8h.html#a24647d2a2f02c39f6338c2c6ce4c1004">jobject</a> local = call_method&lt;jobject&gt;(methodname, signature, &amp;JNIEnv::CallObjectMethod, args...);</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classstaticlib_1_1jni_1_1jobject__ptr.html#ae4050a3e361122bec8a33b9eb3a8e710" title="Constructor.">jobject_ptr</a>(resclass, local);</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;};</div>
@@ -201,19 +201,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00163"></a><span class="lineno"><a class="code" href="classstaticlib_1_1jni_1_1jclass__ptr.html#a70ad57b2afcf112a28e0d6f400c593a6">  163</a></span>&#160;<a class="code" href="classstaticlib_1_1jni_1_1jobject__ptr.html" title="Smart pointer that wraps JNI&#39;s jobject pointer.">jobject_ptr</a> <a class="code" href="classstaticlib_1_1jni_1_1jclass__ptr.html#a70ad57b2afcf112a28e0d6f400c593a6" title="Calls arbitrary java static method, that returns java object, on current class object.">jclass_ptr::call_static_object_method</a>(<span class="keyword">const</span> <a class="code" href="classstaticlib_1_1jni_1_1jclass__ptr.html" title="Smart pointer that wraps JNI&#39;s jclass pointer.">jclass_ptr</a>&amp; resclass,</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keyword">const</span> std::string&amp; methodname, <span class="keyword">const</span> std::string&amp; signature, Args... args) {</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keyword">auto</span> env = <a class="code" href="classstaticlib_1_1jni_1_1thread__local__jni__env__ptr.html" title="Smart pointer that wraps JNIEnv pointer and implements thread-local logic for it.">thread_local_jni_env_ptr</a>();</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <a class="code" href="jni_8h.html#a24647d2a2f02c39f6338c2c6ce4c1004">jobject</a> local = call_static_method&lt;jobject&gt;(methodname, signature, &amp;<a class="code" href="structJNINativeInterface.html#a7736e725a7675a302fcbeb6295d5b11a">JNIEnv::CallStaticObjectMethod</a>, args...);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <a class="code" href="jni_8h.html#a24647d2a2f02c39f6338c2c6ce4c1004">jobject</a> local = call_static_method&lt;jobject&gt;(methodname, signature, &amp;JNIEnv::CallStaticObjectMethod, args...);</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classstaticlib_1_1jni_1_1jobject__ptr.html" title="Smart pointer that wraps JNI&#39;s jobject pointer.">jobject_ptr</a>(resclass, local);</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;}</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;} <span class="comment">//namespace</span></div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;}</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* STATICLIB_JNI_JOBJECT_PTR_HPP */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* STATICLIB_JNI_JOBJECT_PTR_HPP */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 28 2017 21:18:48 for staticlib_jni by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Dec 24 2017 16:16:49 for staticlib_jni by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
