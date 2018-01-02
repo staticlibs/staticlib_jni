@@ -53,6 +53,9 @@ install:
         valgrind
         java-1.8.0-openjdk-devel ;
 
+    `# Android` ;
+    git clone https://github.com/staticlibs/android-ndk-r9d-arm-linux-androideabi-4.8.git ../android-ndk ;
+
     fi
 
 before_script:
@@ -86,6 +89,13 @@ script:
     $D cat /etc/fedora-release ;
     $D cmake /src/staticlib_jni/test -DCMAKE_BUILD_TYPE=Release ;
     $D make all test ;
+
+    `# Android` ;
+    cd .. ;
+    mkdir build-android ;
+    cd build-android ;
+    cmake ../staticlib_jni/test -DCMAKE_BUILD_TYPE=Release -DSTATICLIB_TOOLCHAIN=android_armeabi_gcc -DANDROID_TOOLCHAIN_DIR=`pwd`/../android-ndk ;
+    make ;
 
     fi
 
